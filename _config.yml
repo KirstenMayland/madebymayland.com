@@ -1,0 +1,9 @@
+# Jekyll configuration
+plugins:
+  - jekyll-sass-converter
+
+sass:
+  sass_dir: assets/sass
+  style: compressed
+  load_paths:
+    - assets/sass
