@@ -61,29 +61,51 @@
 						<!-- Work -->
 							<article id="work">
 								<h2 class="major">Work</h2>
-								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
+
+								<!-- Game Dev Intro -->
 								<h3><b>Game Development</b></h3>
-								<p>Created personal game studio to design, develop, and publish original video games.</p>
-								<p>All shipped games, free or otherwise, are listed on my profile: <a href="https://kirm-games.itch.io/">KiRM Games</a>.</p>
-								
-								<h3>Echo Echo</h3>
-								<p><strong>Unity Roguelike</strong>  •  <i>Co-lead of 6-Person Team</i></p>
+								<span class="image main no-overlay"><img src="images/KiRMGamesHeader.png" alt=""/></span>
+								<p>
+									Created personal game studio to design, develop, and publish original video games.
+									All shipped games, free or otherwise, are listed on my profile: 
+									<a href="https://kirm-games.itch.io/">KiRM Games</a>.
+								</p>
+								<p></p>
+
+								<!-- Echo Echo -->
+								<div class="dropdown" id="echoDropdown">
+									<div class="dropdown-header" onclick="toggleDropdown(this)">
+										<h3>Echo Echo</h3>
+										<span class="dropdown-arrow">▼</span>
+									</div>
+									<div class="dropdown-content">
+										<p><i>Unity Roguelike</i> • <i>Co-lead of 6-Person Team</i></p>
+										<ul class="alt">
+											<li>Taught myself Unity, becoming very proficient over the course of the months-long project</li>
+											<li>100+ downloads</li>
+											<li>Co-led 6-person team: coordinated team roles and Scrum sprints, enabled cohesive vision</li>
+											<li>After team handoff, expanded beyond project</li>
+											<li>Developed enemy movement systems in C#, using the "Composition Over Inheritance" principle in order to create flexible, long-lasting systems</li>
+											<li>and integrated feedback from five external playtesters</li>
+											<li>Independently led Echo Echo’s post-launch marketing campaign after team handoff, achieving 100% of original distribution goals via targeted social media and outreach.</li>
+										</ul>
+									</div>
+								</div>
 								<iframe frameborder="0" src="https://itch.io/embed/3155005?linkback=true&amp;bg_color=2e2e2e&amp;fg_color=eeeeee&amp;link_color=fa5c5c&amp;border_color=363636" width="552" height="167"><a href="https://kirm-games.itch.io/echo-echo">Echo Echo by KiRM Games</a></iframe>
-								<ul class="alt">
-									<li>Taught myself Unity</li>
-									<li>100+ downloads</li>
-									<li>Co-led 6-person team: coordinated team roles and Scrum sprints, enabled cohesive vision</li>
-									<li>After team handoff, expanded beyond project</li>
-									<li>Developed enemy movement systems in C#, using the "Composition Over Inheritance" principle in order to create flexible, long-lasting systems</li>
-									<li>and integrated feedback from five external playtesters</li>
-									<li>Independently led Echo Echo’s post-launch marketing campaign after team handoff, achieving 100% of original distribution goals via targeted social media and outreach.</li>
-								</ul>
+
+								<!-- Russet Grove -->
 								<p><br></p>
-								<p><br></p>
-								<h3>Russet Grove</h3>
-								<p><strong>Godot Platformer</strong>  •  <i>Solo Project</i></p>
+								<div class="dropdown" id="echoDropdown">
+									<div class="dropdown-header" onclick="toggleDropdown(this)">
+										<h3>Russet Grove</h3>
+										<span class="dropdown-arrow">▼</span>
+									</div>
+									<div class="dropdown-content">
+										<p><strong>Godot Platformer</strong>  •  <i>Solo Project</i></p>
+										<p>[TODO: description about the game and your contributions]</p>
+									</div>
+								</div>
 								<iframe frameborder="0" src="https://itch.io/embed/2984079?linkback=true&amp;bg_color=2e2e2e&amp;fg_color=eeeeee&amp;link_color=fa5c5c&amp;border_color=363636" width="552" height="167"><a href="https://kirm-games.itch.io/russet-grove">Russet Grove by KiRM Games</a></iframe>
-    							<p>[TODO: description about the game and your contributions]</p>
 
 							</article>
 
@@ -405,6 +427,12 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				function toggleDropdown(element) {
+					const dropdown = element.closest('.dropdown');
+					dropdown.classList.toggle('open');
+				}
+			</script>
 
 	</body>
 </html>

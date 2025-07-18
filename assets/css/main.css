@@ -659,6 +659,10 @@ input, select, textarea {
 			width: 100%;
 		}
 
+		.image.no-overlay:before {
+    		display: none;
+		}
+
 		.image img {
 			border-radius: 4px;
 			display: block;
@@ -1659,3 +1663,73 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
+/* Dropdown styles */
+        .dropdown {
+            margin: 1rem 0;
+        }
+        
+        .dropdown-header {
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            background-color: transparent;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            position: relative;
+        }
+        
+        .dropdown-header:hover {
+            background-color: rgba(39, 41, 44, 0.85);
+        }
+        
+        .dropdown-header h3 {
+            margin: 0;
+            display: inline-block;
+        }
+        
+        .dropdown-arrow {
+            float: right;
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1rem;
+            background-color: rgba(0, 0, 0, 0);
+            border: 1px solid transparent;
+            border-top: none;
+            border-radius: 0 0 1px 1px;
+        }
+        
+        .dropdown.open .dropdown-content {
+            max-height: 1000px; /* Adjust based on your content */
+            padding: 1rem;
+        }
+        
+        .dropdown.open .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+        
+        /* Style adjustments for your content */
+        .dropdown-content iframe {
+            width: 100%;
+            max-width: 552px;
+        }
+        
+        .dropdown-content ul.alt {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .dropdown-content ul.alt li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-content ul.alt li:last-child {
+            border-bottom: none;
+        }
