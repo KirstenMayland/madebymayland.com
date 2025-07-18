@@ -46,8 +46,7 @@
 						<!-- Intro -->
 							<article id="intro">
 								<h2 class="major">Intro</h2>
-								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								<p>Hi, I’m Kirsten, a software developer with a strong foundation in programming and 
+								<p>Hi, I’m Kirsten - a software developer with a strong foundation in programming and 
 									a love for creative challenges. I graduated from Dartmouth College with a B.A. in Computer Science 
 									and a background in business. I enjoy building clean, reliable systems and 
 									using game development as a space to experiment and grow. At my core, I love to create. 
@@ -56,6 +55,7 @@
 								<p>If you're interested in my portfolio and published works, 
 									please check them out over <a href="#work">here</a>.
 								</p>
+								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
 							</article>
 
 						<!-- Work -->
@@ -477,28 +477,5 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					dropdown.classList.toggle('open');
 				}
 			</script>
-			<script>
-				document.querySelector('form').addEventListener('submit', function(e) {
-					// Create or show the success message
-					let successMsg = document.getElementById('success-msg');
-					if (!successMsg) {
-						successMsg = document.createElement('div');
-						successMsg.id = 'success-msg';
-						successMsg.style.cssText = 'color: #4ade80; font-weight: bold; margin-top: 1rem; display: none;';
-						successMsg.textContent = 'Sent!';
-						this.appendChild(successMsg);
-					}
-					
-					// Show the message after a short delay (simulating send time)
-					setTimeout(() => {
-						successMsg.style.display = 'block';
-						// Hide it after 3 seconds
-						setTimeout(() => {
-							successMsg.style.display = 'none';
-						}, 3000);
-					}, 500);
-				});
-			</script>
-
 	</body>
 </html>
