@@ -2,7 +2,7 @@
 
 Credits:
 
-	Initial template:
+	Initial formatting:
 		Dimension by HTML5 UP | html5up.net | @ajlkn
 
 	Demo Images:
