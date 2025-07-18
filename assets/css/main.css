@@ -1733,3 +1733,17 @@ input, select, textarea {
         .dropdown-content ul.alt li:last-child {
             border-bottom: none;
         }
+
+/* Skills Grid */
+		.skills-grid {
+			display: grid;
+			gap: 0.5rem;
+			margin: 1rem 0;
+		}
+		.skills-grid div {
+			padding: 0.5rem 0;
+		}
+		.skills-grid .icon {
+			margin-right: 0.5rem;
+			color: #9ccd99;
+		}
