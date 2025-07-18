@@ -430,6 +430,15 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script>
 				function toggleDropdown(element) {
 					const dropdown = element.closest('.dropdown');
+					
+					// close other dropdowns first
+					const allDropdowns = document.querySelectorAll('.dropdown');
+					allDropdowns.forEach(d => {
+						if (d !== dropdown) {
+							d.classList.remove('open');
+						}
+					});
+					
 					dropdown.classList.toggle('open');
 				}
 			</script>
