@@ -161,21 +161,21 @@
 									the long list of projects and research I partook in during my college years. 
 								</p>
 								<p>
-									In my personal life, I continue collecting random hobbies. Some projects and weekend pursuits 
+									In my personal life, I continue to collect random hobbies. Some projects and weekend pursuits 
 									I've engaged in are: creating orienteering maps for high schools, learning seamstressing, 
 									working as a ski instructor, and somehow, a lot of landscaping. Tree trimming, lawn mowing, 
 									trail maintenance, gardening & transplanting -- I've done it all and met some awesome people 
 									along the way. I love programming and the tech world, but I also really cherish these side projects 
 									as they've taught me a lot about communicating with people from all walks of life and have helped 
 									inform my world view. I've recently gotten into motorsports, so stay tuned if I decide to start 
-									making telemetry analysis videos.
+									making telemetry analysis videos lol.
 								</p>	
 							</article>
 
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
+								<form method="POST" action="https://formspree.io/f/xldldnqq">
 									<div class="fields">
 										<div class="field half">
 											<label for="name">Name</label>
@@ -183,7 +183,7 @@
 										</div>
 										<div class="field half">
 											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
+											<input type="email" name="email" id="email" />
 										</div>
 										<div class="field">
 											<label for="message">Message</label>
@@ -476,6 +476,28 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					
 					dropdown.classList.toggle('open');
 				}
+			</script>
+			<script>
+				document.querySelector('form').addEventListener('submit', function(e) {
+					// Create or show the success message
+					let successMsg = document.getElementById('success-msg');
+					if (!successMsg) {
+						successMsg = document.createElement('div');
+						successMsg.id = 'success-msg';
+						successMsg.style.cssText = 'color: #4ade80; font-weight: bold; margin-top: 1rem; display: none;';
+						successMsg.textContent = 'Sent!';
+						this.appendChild(successMsg);
+					}
+					
+					// Show the message after a short delay (simulating send time)
+					setTimeout(() => {
+						successMsg.style.display = 'block';
+						// Hide it after 3 seconds
+						setTimeout(() => {
+							successMsg.style.display = 'none';
+						}, 3000);
+					}, 500);
+				});
 			</script>
 
 	</body>
