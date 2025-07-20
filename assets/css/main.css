@@ -1707,7 +1707,7 @@ input, select, textarea {
         }
         
         .dropdown.open .dropdown-content {
-            max-height: 1000px; /* Adjust based on your content */
+            max-height: 2000px; /* Adjust based on your content */
             padding: 1rem;
         }
         
