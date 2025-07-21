@@ -1749,8 +1749,8 @@ input, select, textarea {
 			color: #9ccd99;
 		}
 
-	/* Timeline */
-.timeline-container {
+/* Timeline */
+		.timeline-container {
             max-width: 1000px;
             margin: 0 auto;
             position: relative;
@@ -1779,7 +1779,6 @@ input, select, textarea {
         .timeline-content {
             position: relative;
             width: 45%;
-            /* background: rgba(255, 255, 255, 0.95); */
             padding: 1.5rem;
             border-radius: 12px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -1789,14 +1788,13 @@ input, select, textarea {
 
         .timeline-date {
             position: absolute;
-            top: 0%;
+            top: 2.75%;
             color: white;
             padding: 0.8rem 1.2rem;
             border-radius: 5px;
             font-weight: bold;
             font-size: 0.9rem;
             white-space: nowrap;
-            /* box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3); */
         }
 
         /* Timeline dot */
@@ -1821,7 +1819,7 @@ input, select, textarea {
         }
 
         .timeline-item:nth-child(odd) .timeline-date {
-            right: -1rem;
+            right: calc(25% + 2rem);;
         }
 
         /* Right side items (even) */
@@ -1830,18 +1828,15 @@ input, select, textarea {
         }
 
         .timeline-item:nth-child(even) .timeline-date {
-            left: -1rem;
+            left: calc(25% + 2rem);
         }
 
         /* Content styling */
         .timeline-content h3 {
-            /* color: #333; */
             margin-bottom: 0.5rem;
-            font-size: 1.3rem;
         }
 
         .timeline-content p {
-            /* color: #666; */
             line-height: 1.6;
             margin-bottom: 1rem;
         }
@@ -1859,7 +1854,6 @@ input, select, textarea {
 
         .timeline-content .details li {
             margin-bottom: 0.5rem;
-            /* color: #555; */
         }
 
         /* Animations */
