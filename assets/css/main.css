@@ -1750,231 +1750,292 @@ input, select, textarea {
 		}
 
 /* Timeline */
-		:root {
-            --background-color: #111;
-            --accent-color: #9ccd99;
-        }
+:root {
+    --background-color: #111;
+    --accent-color: #9ccd99;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-        }
+* {
+    margin: 0;
+    padding: 0;
+}
 
-        body {
-            display: flex;
-            justify-content: center;
-            color: white;
-        }
+body {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
 
-        /* Timeline Container */
-        .timeline {
-            margin: 20px auto;
-            padding: 20px;
-            max-width: 1000px;
-        }
+/* Timeline Container */
+.timeline {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1000px;
+}
 
-        /* Card container */
-        .card {
-            position: relative;
-            max-width: calc(100% - 100px);
-        }
+/* Card container */
+.card {
+    position: relative;
+    max-width: calc(100% - 100px);
+}
 
-        /* setting padding based on even or odd */
-        .card:nth-child(odd) {
-            padding: 30px 0 30px 30px;
-			margin-left: 100px;
-        }
+/* setting padding based on even or odd */
+.card:nth-child(odd) {
+    padding: 30px 0 30px 30px;
+    margin-left: 100px;
+}
 
-        .card:nth-child(even) {
-            padding: 30px 30px 30px 0;
-        }
+.card:nth-child(even) {
+    padding: 30px 30px 30px 0;
+}
 
-        /* Global ::before for the curved borders */
-        .card::before {
-            content: "";
-            position: absolute;
-            width: 50%;
-            border: solid var(--accent-color);
-        }
+/* Global ::before for the curved borders */
+.card::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    border: solid var(--accent-color);
+}
 
-        /* Setting the border of top, bottom, left - creates left curve */
-        .card:nth-child(odd)::before {
-            left: 0px;
-            top: -4.5px;
-            bottom: -4.5px;
-            border-width: 5px 0 5px 5px;
-            border-radius: 50px 0 0 50px;
-        }
+/* Setting the border of top, bottom, left - creates left curve */
+.card:nth-child(odd)::before {
+    left: 0px;
+    top: -4.5px;
+    bottom: -4.5px;
+    border-width: 5px 0 5px 5px;
+    border-radius: 50px 0 0 50px;
+}
 
-        /* Setting the top and bottom to "-5px" because earlier it was out of a pixel in mobile devices */
-        @media only screen and (max-width: 400px) {
-            .card:nth-child(odd)::before {
-                top: -5px;
-                bottom: -5px;
-            }
-        }
+/* Setting the top and bottom to "-5px" because earlier it was out of a pixel in mobile devices */
+@media only screen and (max-width: 400px) {
+    .card:nth-child(odd)::before {
+        top: -5px;
+        bottom: -5px;
+    }
+}
 
-        /* Setting the border of top, bottom, right - creates right curve */
-        .card:nth-child(even)::before {
-            right: 0;
-            top: 0;
-            bottom: 0;
-            border-width: 5px 5px 5px 0;
-            border-radius: 0 50px 50px 0;
-			margin-left: auto;
-        }
+/* Setting the border of top, bottom, right - creates right curve */
+.card:nth-child(even)::before {
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-width: 5px 5px 5px 0;
+    border-radius: 0 50px 50px 0;
+    margin-left: auto;
+}
 
-        /* Removing the border if it is the first card */
-        .card:first-child::before {
-            border-top: 0;
-            border-top-left-radius: 0;
-        }
+/* Removing the border if it is the first card */
+.card:first-child::before {
+    border-top: 0;
+    border-top-left-radius: 0;
+}
 
-        /* Removing the border if it is the last card and it's odd */
-        .card:last-child:nth-child(odd)::before {
-            border-bottom: 0;
-            border-bottom-left-radius: 0;
-        }
+/* Removing the border if it is the last card and it's odd */
+.card:last-child:nth-child(odd)::before {
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+}
 
-        /* Removing the border if it is the last card and it's even */
-        .card:last-child:nth-child(even)::before {
-            border-bottom: 0;
-            border-bottom-right-radius: 0;
-        }
+/* Removing the border if it is the last card and it's even */
+.card:last-child:nth-child(even)::before {
+    border-bottom: 0;
+    border-bottom-right-radius: 0;
+}
 
-        /* Information about the timeline */
-        .info {
-            display: flex;
-            flex-direction: column;
-            background: #333;
-            color: #ccc;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+/* Information about the timeline */
+.info {
+    display: flex;
+    flex-direction: column;
+    background: #333;
+    color: #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-        /* Title of the card */
-        .title {
-            color: var(--accent-color);
-            position: relative;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
+/* Title of the card */
+.title {
+    color: var(--accent-color);
+    position: relative;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
 
-        /* Timeline dot */
-        .title::before {
-            content: "";
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: white;
-            border-radius: 999px;
-            border: 3px solid var(--accent-color);
-            box-shadow: 0 0 0 4px rgba(156, 205, 153, 0.2);
-			/* margin-left: 100px; */
-        }
+/* Timeline dot */
+.title::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 999px;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(156, 205, 153, 0.2);
+}
 
-        /* text right if the card is even */
-        .card:nth-child(even) > .info > .title {
-            text-align: right;
-        }
+/* text right if the card is even */
+.card:nth-child(even) > .info > .title {
+    text-align: right;
+}
 
-        /* setting dot to the left if the card is odd - centered on the curved border */
-        .card:nth-child(odd) > .info > .title::before {
-            left: -48.25px;
-        }
+/* setting dot to the left if the card is odd - centered on the curved border */
+.card:nth-child(odd) > .info > .title::before {
+    left: -48.25px;
+}
 
-        /* setting dot to the right if the card is even - centered on the curved border */
-        .card:nth-child(even) > .info > .title::before {
-            right: -48.25px;
-        }
+/* setting dot to the right if the card is even - centered on the curved border */
+.card:nth-child(even) > .info > .title::before {
+    right: -48.25px;
+}
 
-        /* Date styling - compact and positioned */
-        .date {
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 15px;
-            position: absolute;
-            white-space: nowrap;
-        }
+/* Date styling - compact and positioned */
+.date {
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    position: absolute;
+    white-space: nowrap;
+}
 
-        /* Date positioning for odd cards (content on left, date on right side of line) */
-        .card:nth-child(odd) .date {
-            left: -100px;
-            top: 13.5%;
-            transform: translateY(-50%);
-        }
+/* Date positioning for odd cards (content on left, date on right side of line) */
+.card:nth-child(odd) .date {
+    left: -100px;
+    top: 13.5%;
+    transform: translateY(-50%);
+}
 
-        /* Date positioning for even cards (content on right, date on left side of line) */
-        .card:nth-child(even) .date {
-            right: -100px;
-            top: 13.5%;
-            transform: translateY(-50%);
-        }
+/* Date positioning for even cards (content on right, date on left side of line) */
+.card:nth-child(even) .date {
+    right: -100px;
+    top: 13.5%;
+    transform: translateY(-50%);
+}
 
-        /* Content styling */
-        .content {
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
+/* Content styling */
+.content {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
 
-        .details {
-            background: rgba(156, 205, 153, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 4px solid #4a524a;
-            margin-top: 1rem;
-        }
+.details {
+    background: rgba(156, 205, 153, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #4a524a;
+    margin-top: 1rem;
+}
 
-        .details ul {
-            margin-left: 1rem;
-        }
+.details ul {
+    margin-left: 1rem;
+}
 
-        .details li {
-            margin-bottom: 0.5rem;
-        }
+.details li {
+    margin-bottom: 0.5rem;
+}
 
-        /* Animations */
-        .card {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.6s ease forwards;
-        }
+/* Animations */
+.card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+}
 
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
-        .card:nth-child(4) { animation-delay: 0.4s; }
-        .card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
 
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        /* Hover effects */
-        .info:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 17px rgba(0, 0, 0, 0.4);
-            transition: all 0.3s ease;
-        }
+/* Hover effects */
+.info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
 
-        /* Mobile responsiveness */
-        @media only screen and (max-width: 768px) {
-            .card:nth-child(odd) .date,
-            .card:nth-child(even) .date {
-                position: static;
-                transform: none;
-                margin-bottom: 10px;
-                display: inline-block;
-            }
-            
-            .card:nth-child(odd) > .info > .title::before,
-            .card:nth-child(even) > .info > .title::before {
-                display: none;
-            }
-        }
+/* Mobile responsiveness */
+@media only screen and (max-width: 768px) {
+    .timeline {
+        padding: 10px;
+        overflow-x: hidden;
+    }
+    
+    /* Scale down margins and padding proportionally */
+    .card:nth-child(odd) {
+        margin-left: 50px;
+        padding: 20px 0 20px 20px;
+    }
+    
+    .card:nth-child(even) {
+        padding: 20px 20px 20px 0;
+    }
+    
+    .card {
+        max-width: calc(100% - 50px);
+    }
+    
+    /* Scale down date positioning */
+    .card:nth-child(odd) .date {
+        left: -50px;
+    }
+    
+    .card:nth-child(even) .date {
+        right: -50px;
+    }
+    
+    /* Adjust dot positioning for smaller margins */
+    .card:nth-child(odd) > .info > .title::before {
+        left: -28px;
+    }
+    
+    .card:nth-child(even) > .info > .title::before {
+        right: -28px;
+    }
+}
+
+/* Very small screens */
+@media only screen and (max-width: 480px) {
+    .card:nth-child(odd) {
+        margin-left: 30px;
+        padding: 15px 0 15px 15px;
+    }
+    
+    .card:nth-child(even) {
+        padding: 15px 15px 15px 0;
+    }
+    
+    .card {
+        max-width: calc(100% - 30px);
+    }
+    
+    .card:nth-child(odd) .date {
+        left: -30px;
+        font-size: 0.9em;
+    }
+    
+    .card:nth-child(even) .date {
+        right: -30px;
+        font-size: 0.9em;
+    }
+    
+    .card:nth-child(odd) > .info > .title::before {
+        left: -18px;
+    }
+    
+    .card:nth-child(even) > .info > .title::before {
+        right: -18px;
+    }
+    
+    .info {
+        padding: 12px;
+    }
+}
