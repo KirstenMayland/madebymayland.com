@@ -1751,10 +1751,8 @@ input, select, textarea {
 
 /* Timeline */
 		:root {
-            --primary-color: #212121;
             --background-color: #111;
             --accent-color: #9ccd99;
-            --font: sans-serif;
         }
 
         * {
@@ -1763,8 +1761,6 @@ input, select, textarea {
         }
 
         body {
-            background: var(--background-color);
-            font-family: var(--font);
             display: flex;
             justify-content: center;
             color: white;
@@ -1772,7 +1768,6 @@ input, select, textarea {
 
         /* Timeline Container */
         .timeline {
-            background: var(--primary-color);
             margin: 20px auto;
             padding: 20px;
             max-width: 1000px;
@@ -1888,12 +1883,12 @@ input, select, textarea {
 
         /* setting dot to the left if the card is odd - centered on the curved border */
         .card:nth-child(odd) > .info > .title::before {
-            left: -48.5px;
+            left: -48.25px;
         }
 
         /* setting dot to the right if the card is even - centered on the curved border */
         .card:nth-child(even) > .info > .title::before {
-            right: -48.5px;
+            right: -48.25px;
         }
 
         /* Date styling - compact and positioned */
@@ -1929,7 +1924,7 @@ input, select, textarea {
             background: rgba(156, 205, 153, 0.1);
             padding: 1rem;
             border-radius: 8px;
-            border-left: 4px solid var(--accent-color);
+            border-left: 4px solid #4a524a;
             margin-top: 1rem;
         }
 
