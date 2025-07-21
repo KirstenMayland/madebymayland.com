@@ -1750,124 +1750,209 @@ input, select, textarea {
 		}
 
 /* Timeline */
-		.timeline-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            padding: 2rem 0;
+		:root {
+            --primary-color: #212121;
+            --background-color: #111;
+            --accent-color: #9ccd99;
+            --font: sans-serif;
         }
 
-        /* Center line */
-        .timeline-container::before {
-            content: '';
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--background-color);
+            font-family: var(--font);
+            display: flex;
+            justify-content: center;
+            color: white;
+        }
+
+        /* Timeline Container */
+        .timeline {
+            background: var(--primary-color);
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 1000px;
+        }
+
+        /* Card container */
+        .card {
+            position: relative;
+            max-width: calc(100% - 100px);
+        }
+
+        /* setting padding based on even or odd */
+        .card:nth-child(odd) {
+            padding: 30px 0 30px 30px;
+			margin-left: 100px;
+        }
+
+        .card:nth-child(even) {
+            padding: 30px 30px 30px 0;
+        }
+
+        /* Global ::before for the curved borders */
+        .card::before {
+            content: "";
             position: absolute;
-            left: 50%;
+            width: 50%;
+            border: solid var(--accent-color);
+        }
+
+        /* Setting the border of top, bottom, left - creates left curve */
+        .card:nth-child(odd)::before {
+            left: 0px;
+            top: -4.5px;
+            bottom: -4.5px;
+            border-width: 5px 0 5px 5px;
+            border-radius: 50px 0 0 50px;
+        }
+
+        /* Setting the top and bottom to "-5px" because earlier it was out of a pixel in mobile devices */
+        @media only screen and (max-width: 400px) {
+            .card:nth-child(odd)::before {
+                top: -5px;
+                bottom: -5px;
+            }
+        }
+
+        /* Setting the border of top, bottom, right - creates right curve */
+        .card:nth-child(even)::before {
+            right: 0;
             top: 0;
             bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, #9ccd99 0%, #386a35 100%);
-            transform: translateX(-50%);
-            border-radius: 2px;
+            border-width: 5px 5px 5px 0;
+            border-radius: 0 50px 50px 0;
+			margin-left: auto;
         }
 
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            width: 100%;
+        /* Removing the border if it is the first card */
+        .card:first-child::before {
+            border-top: 0;
+            border-top-left-radius: 0;
         }
 
-        .timeline-content {
-            position: relative;
-            width: 45%;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        /* Removing the border if it is the last card and it's odd */
+        .card:last-child:nth-child(odd)::before {
+            border-bottom: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        /* Removing the border if it is the last card and it's even */
+        .card:last-child:nth-child(even)::before {
+            border-bottom: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        /* Information about the timeline */
+        .info {
+            display: flex;
+            flex-direction: column;
+            background: #333;
+            color: #ccc;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .timeline-date {
-            position: absolute;
-            top: 2.75%;
-            color: white;
-            padding: 0.8rem 1.2rem;
-            border-radius: 5px;
+        /* Title of the card */
+        .title {
+            color: var(--accent-color);
+            position: relative;
             font-weight: bold;
-            font-size: 0.9rem;
-            white-space: nowrap;
-        }
-
-        /* Timeline dot */
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 2rem;
-            width: 16px;
-            height: 16px;
-            background: #9ccd99;
-            border-radius: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            border: 4px solid white;
-            box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.2);
-        }
-
-        /* Left side items (odd) */
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-left: 0;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-date {
-            right: calc(25% + 2rem);;
-        }
-
-        /* Right side items (even) */
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-left: 55%;
-        }
-
-        .timeline-item:nth-child(even) .timeline-date {
-            left: calc(25% + 2rem);
-        }
-
-        /* Content styling */
-        .timeline-content h3 {
             margin-bottom: 0.5rem;
         }
 
-        .timeline-content p {
+        /* Timeline dot */
+        .title::before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 999px;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 0 0 4px rgba(156, 205, 153, 0.2);
+			/* margin-left: 100px; */
+        }
+
+        /* text right if the card is even */
+        .card:nth-child(even) > .info > .title {
+            text-align: right;
+        }
+
+        /* setting dot to the left if the card is odd - centered on the curved border */
+        .card:nth-child(odd) > .info > .title::before {
+            left: -48.5px;
+        }
+
+        /* setting dot to the right if the card is even - centered on the curved border */
+        .card:nth-child(even) > .info > .title::before {
+            right: -48.5px;
+        }
+
+        /* Date styling - compact and positioned */
+        .date {
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            position: absolute;
+            white-space: nowrap;
+        }
+
+        /* Date positioning for odd cards (content on left, date on right side of line) */
+        .card:nth-child(odd) .date {
+            left: -100px;
+            top: 13.5%;
+            transform: translateY(-50%);
+        }
+
+        /* Date positioning for even cards (content on right, date on left side of line) */
+        .card:nth-child(even) .date {
+            right: -100px;
+            top: 13.5%;
+            transform: translateY(-50%);
+        }
+
+        /* Content styling */
+        .content {
             line-height: 1.6;
             margin-bottom: 1rem;
         }
 
-        .timeline-content .details {
-            background: rgba(79, 172, 254, 0.1);
+        .details {
+            background: rgba(156, 205, 153, 0.1);
             padding: 1rem;
             border-radius: 8px;
-            border-left: 4px solid #9ccd99;
+            border-left: 4px solid var(--accent-color);
+            margin-top: 1rem;
         }
 
-        .timeline-content .details ul {
+        .details ul {
             margin-left: 1rem;
         }
 
-        .timeline-content .details li {
+        .details li {
             margin-bottom: 0.5rem;
         }
 
         /* Animations */
-        .timeline-item {
+        .card {
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 0.6s ease forwards;
         }
 
-        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
-        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
-        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
-        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
-        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
 
         @keyframes fadeInUp {
             to {
@@ -1876,28 +1961,25 @@ input, select, textarea {
             }
         }
 
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .timeline-container::before {
-                left: 2rem;
-            }
+        /* Hover effects */
+        .info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 17px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
 
-            .timeline-item::before {
-                left: 2rem;
+        /* Mobile responsiveness */
+        @media only screen and (max-width: 768px) {
+            .card:nth-child(odd) .date,
+            .card:nth-child(even) .date {
+                position: static;
+                transform: none;
+                margin-bottom: 10px;
+                display: inline-block;
             }
-
-            .timeline-item:nth-child(odd) .timeline-content,
-            .timeline-item:nth-child(even) .timeline-content {
-                width: calc(100% - 5rem);
-                margin-left: 4rem;
-            }
-
-            .timeline-item:nth-child(odd) .timeline-date,
-            .timeline-item:nth-child(even) .timeline-date {
-                left: -3rem;
-                right: auto;
-                writing-mode: vertical-rl;
-                text-orientation: mixed;
-                padding: 1rem 0.5rem;
+            
+            .card:nth-child(odd) > .info > .title::before,
+            .card:nth-child(even) > .info > .title::before {
+                display: none;
             }
         }
