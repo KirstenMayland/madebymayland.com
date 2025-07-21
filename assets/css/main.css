@@ -2002,8 +2002,8 @@ body {
     }
 }
 
-/* Very small screens */
-@media only screen and (max-width: 480px) {
+/* Very small screens - move dates inside when too cramped */
+@media only screen and (max-width: 768px) {
     .card:nth-child(odd) {
         margin-left: 30px;
         padding: 15px 0 15px 15px;
@@ -2017,22 +2017,19 @@ body {
         max-width: calc(100% - 30px);
     }
     
-    .card:nth-child(odd) .date {
-        left: -30px;
-        font-size: 0.9em;
-    }
-    
+    /* Move dates inside cards when screen is too small */
+    .card:nth-child(odd) .date,
     .card:nth-child(even) .date {
-        right: -30px;
-        font-size: 0.9em;
+        position: static;
+        transform: none;
+        margin-bottom: 10px;
+        display: inline-block;
     }
     
-    .card:nth-child(odd) > .info > .title::before {
-        left: -18px;
-    }
-    
+    /* Hide the timeline dots when dates are moved inside */
+    .card:nth-child(odd) > .info > .title::before,
     .card:nth-child(even) > .info > .title::before {
-        right: -18px;
+        display: none;
     }
     
     .info {
