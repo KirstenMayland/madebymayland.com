@@ -1779,7 +1779,7 @@ input, select, textarea {
         .timeline-content {
             position: relative;
             width: 45%;
-            background: rgba(255, 255, 255, 0.95);
+            /* background: rgba(255, 255, 255, 0.95); */
             padding: 1.5rem;
             border-radius: 12px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -1790,7 +1790,6 @@ input, select, textarea {
         .timeline-date {
             position: absolute;
             top: 0%;
-            /* transform: translateY(-50%); */
             color: white;
             padding: 0.8rem 1.2rem;
             border-radius: 5px;
@@ -1822,7 +1821,7 @@ input, select, textarea {
         }
 
         .timeline-item:nth-child(odd) .timeline-date {
-            right: -1px;
+            right: -1rem;
         }
 
         /* Right side items (even) */
@@ -1831,18 +1830,18 @@ input, select, textarea {
         }
 
         .timeline-item:nth-child(even) .timeline-date {
-            left: -1px;
+            left: -1rem;
         }
 
         /* Content styling */
         .timeline-content h3 {
-            color: #333;
+            /* color: #333; */
             margin-bottom: 0.5rem;
             font-size: 1.3rem;
         }
 
         .timeline-content p {
-            color: #666;
+            /* color: #666; */
             line-height: 1.6;
             margin-bottom: 1rem;
         }
@@ -1860,7 +1859,7 @@ input, select, textarea {
 
         .timeline-content .details li {
             margin-bottom: 0.5rem;
-            color: #555;
+            /* color: #555; */
         }
 
         /* Animations */
